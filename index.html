@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HOTELPATAGONIA| HOTELPATAGONIA</title>
+    </style>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!--libreria de iconos de Fontawesome-->
+    <script src="https://kit.fontawesome.com/114adfbeac.js" crossorigin="anonymous"></script>
+    <!--link externo de estilo de css-->
+    <link rel="stylesheet" href="./css/estilo.css">
+
+</head>
+<body>
+  <header class="header"> 
+     <nav>     
+        <a href="index.html">
+            
+              <i class="fa-solid fa-hotel"> HOTEL PATAGONIA</i> 
+        </a>
+     
+        <ul>
+          <li><a href="./pages/habitaciones.html"> Habitaciones</a></li>
+          <li><a href="./pages/servicios.html"> Servicios</a></li>
+          <li><a href="./pages/contacto.html">Contacto</a></li>
+          <li><a href="./pages/iniciarsesion.html">Iniciar Sesión</a></li>
+        <ul>        
+      </nav>
+   
+  </header>
+              
+  <div class="Container">
+
+    <div class="card">
+      <h2>Informacion del clima</h2>
+      
+    </div>
+    <div class="tarjetaclima">
+      <p> <span>Ciudad:</span> <span id="city"></span></p> 
+      <p><span>Temperatura:</span> <span id="temperature"></span>°C</p> 
+      <p><span> Clima:</span> <span id="weather"></span><img id="weatherIcon" src="" alt=""> </p> 
+      <p><span>Humedad:</span><span id="humidity"></span>%</p>
+      <p><span>Velocidad del viento: </span><span id="windspeed"></span> m/s </p>
+
+    <!--<input type="text"placeholder= "Ingrese nombre de la ciudad" id= "cityInput" value= ""> 
+    <br>-->
+    <button id="button">Actualizar clima</button>
+    
+  </div>
+ </div>
+    
+    <!--funcion para obtener datos del clima-->
+
+<script>
+  async function fetchWeather(city) {
+          // Definir la URL de la API del clima
+          const url = "https://api.openweathermap.org/data/2.5/weather";
+          // Clave de API para acceder a la API del clima
+          const apiKey = "aa581693091643deb6778cb547c24d7c";
+          //const apiKey = "21e3195e9bfeb6879e788ec605b09ab0";
+          //
+          // Unidades de medida para la temperatura (en este caso, Celsius)
+          const units = "metric";
+          // Idioma para los datos de respuesta (en este caso, español)
+          const lang = "es";
+
+          // Realizar una solicitud GET a la API del clima
+          const response = await fetch(`${url}?q=${city}&appid=${apiKey}&units=${units}&lang=${lang}`);
+          // Convertir la respuesta a formato JSON
+          const data = await response.json();
+          // Devolver los datos del clima
+          return data;
+      }
+
+  //funcion para actualizar los datos del clima//
+
+  async function updateWeathercard(city){
+      const weatherData= await fetchWeather(city);
+      document.getElementById("city").textContent = weatherData.name;
+      document.getElementById("temperature").textContent = weatherData.main.temp;
+      document.getElementById("weather").textContent = weatherData.weather[0].descripcion;
+      document.getElementById("humidity").textContent = weatherData.main.humidity;
+      document.getElementById("windspeed").textContent = weatherData.wind.speed;
+      const iconCode = weatherData.weather[0].icon;
+      const iconUrl =  `https://openweathermap.org/img/w/${iconCode}.png`;
+      document.getElementById("weatherIcon").src = iconUrl;
+      document.getElementById("weatherIcon").alt = weatherData.weather[0].descripcion;
+  }
+  document.addEventListener("DOMContentLoaded", () => {
+          // Llamar a la función updateWeatherCard con la ciudad de "Bariloche" cuando el DOM esté cargado
+      updateWeathercard("Bariloche");
+  });
+ 
+
+</script>
+
+</body>
+   
+      <section class="sectiontitulos">
+        <div class="titulos">
+        <h1>BIENVENIDOS HOTEL PATAGONIA</h1>
+        <h2>Descrubre nuestro hotel</h2>
+        <p> Hotel patagonia es un hotel ubicado a minutos del centro cívico de Bariloche y a orillas del lago Nahuel Huapi.
+          <br>
+          Podrás disfrutar de la energía de la patagonia Argentina logrando que nuestro hospedaje una experiencia inolvidable.</p>
+
+          
+            <a class="btn" href="">RESERVAR</a>
+          
+          
+        </div>
+        
+      </section>
+    
+      <main>
+        
+          <div class="comentarios">
+            <!--<h2 class="h2_comentarios">Comentarios</h2>-->
+            
+            <div class="opiniones btn">Vista y ubicación inmejorables. La atención de la mayor parte del personal súper amable. Un servicio de desayuno muy rico y abundante, con hermosa vista al Lago… Excelentes condiciones de limpieza</div>
+          
+  
+          
+            <div class="opiniones btn">Realmente es un lugar soñado.Su decoración, el servicio del personal; impecable todo. Rescato además el desayuno.</div>
+           
+           
+            <div class="opiniones btn">Muy buen hotel! Está un poquito alejado del centro pero lo compensa con el jardín con salida al lago Nahuel Huapi. Tiene restaurante. Buen desayuno. Excelente atención del personal. Es pet.friendly!!</div>
+          </div>  
+        
+      </main>
+      
+    <footer class="footerindex">
+
+      <nav>
+       
+        <div>
+          <a href="https://www.instagram.com/patagonia.hotel/" target="_blank">
+           <img src="./assets/img/instagram.png" alt="Instagram">
+          </a>
+           
+         </div>
+ 
+         <div>
+           <img src="./assets/img/whatsapp.png" alt="whatsapp">
+         </div>
+         <div>
+           <a href="https://www.tripadvisor.com.ar/Hotel_Review-g312848-d1847284-Reviews-Patagonia_Hotel-San_Carlos_de_Bariloche_Province_of_Rio_Negro_Patagonia.html" target="_blank">
+             <img src="./assets/img/tripadvisor.png" alt="Tripadvisor">
+           </a>  
+ 
+           <div>
+             <a href="./pages/politicadecancelación.html"> Politica de Cancelación</a>
+           </div>
+      </nav>
+      
+      <a href="#main"class="flecha"</a> 
+          <i class="fa-regular fa-circle-up"></i>
+          
+        </a>
+        </div>
+        
+    </footer>
+    
+    <div class="Containerdolar">
+
+      <div class="card">
+        <h2>Cotización del dolar</h2>
+        
+      </div>
+      <div class="dolar">
+       <!-- <p> <span>Fecha:</span> <span id="date"></span></p> 
+        <p><span>Valor:</span> <span id="Valor"></span></p>-->
+    
+        <div id="dataBank"></div>
+
+<script src="./js/dolar.js"></script>
+
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title> HOTELPATAGONIA| HOTELPATAGONIA</title>
+    </style>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <!--libreria de iconos de Fontawesome-->
+    <script src="https://kit.fontawesome.com/114adfbeac.js" crossorigin="anonymous"></script>
+    <!--link externo de estilo de css-->
+    <link rel="stylesheet" href="../css/estilo.css">
+    
+</head>
+<body>
+    <header class="header"> 
+        <nav>
+         
+            <a href="../index.html">
+              
+                <i class="fa-solid fa-hotel"> HOTEL PATAGONIA</i>
+            </a>
+
+            <ul>
+              <li><a href="../pages/habitaciones.html"> Habitaciones</a></li>
+              <li><a href="../pages/servicios.html"> Servicios</a></li>
+              <li><a href="../pages/contacto.html">Contacto</a></li>
+              <li><a href="../pages/iniciarsesion.html">Iniciar Sesión</a></li>
+            <ul>   
+            
+        </nav>
+
+
+    </header>
+
+  <main>
+
+      <section class="iniciarsesion">
+        <style>
+          .error-message {
+            color: red;
+            font-size: 10px;
+            margin-top: 5px;
+          }
+        
+          
+      </style>
+        <h1> Iniciar Sesión</h1>
+        <form id="loginform">
+
+          
+            <!--<input type="text" name="email" id="email" placeholder="E-mail" required>!-->
+         <div class="iniciarvalidacion">
+
+          <div class="validación">
+            <label for="username" class="form-label"></label>
+            <input type="username" class="form-control" id="username" placeholder="Usuario" name="username">
+            <div id="usernameError" class="error-message"></div>
+        </div>
+           
+        <div class="validación">
+              <label for="email" class="form-label"></label>
+       </div>
+              <input type="email" class="form-control" id="email" placeholder="E-mail"name="email">
+              <div id="emailError" class="error-message"></div>
+        </div>
+            
+
+        <div class="validación">
+            <!--<input type="contraseña" name="contraseña" id="contraseña" placeholder="Contraseña" required>!-->
+            <label for="password" class="form-label"></label>
+            <input type="password" class="form-control" id="password" placeholder="Contraseña" name="password">
+            <div id="passwordError" class="error-message"></div>
+       </div>
+
+         </div>
+         
+          
+    
+        <div>
+            <input type="submit" value="Aceptar">
+        </div>
+        
+
+          
+
+        <div>
+            <a href="../pages/contacto.html">Contacto</a>
+        </div>
+          
+          
+        </form>
+
+
+      </section>
+      
+    
+    </main>
+
+   
+    
+
+    <footer class="footer">
+
+      Av.Libertad 1040, C1012, Bariloche
+      Reserva:(54)(294)5031-4294
+      info@hoteleslagoescondido.com
+
+    </footer>
+
+
+  <!--<script src="../js/Validacion.js"></script>-->
+  <script src="../js/Validacion.js"> </script>
+  
+
+    
+</body>
+</html>
